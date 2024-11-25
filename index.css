@@ -181,7 +181,7 @@ header .container {
     cursor: pointer;
 }
 
-/* payment window */
+/* payment modal window */
 #payment-window {
     position: fixed;
     width: 524px;
@@ -235,6 +235,7 @@ input, #submit-btn {
     height: 71.3px;
 }
 
+/* Ending msg */
 .thank-msg h1 {
     font-size: 32px;
     font-weight: 400;
@@ -243,6 +244,7 @@ input, #submit-btn {
     background-color: #ECFDF5;
     color: #065F46;
 }
+
 .disable {
     display: none;
 }

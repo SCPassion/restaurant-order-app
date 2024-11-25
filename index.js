@@ -1,5 +1,6 @@
 import { menuArray } from './data.js'
 
+// DOM Elements
 const itemContainer = document.getElementById('item-container')
 const orderArea = document.getElementById('order-area')
 const orderContainer = document.getElementById('order-container')
@@ -7,8 +8,10 @@ const orderPrice = document.getElementById('order-price')
 const paymentWindow = document.getElementById('payment-window')
 const form = document.getElementById('form')
 
-let orderArray = []
+// Initialization
+const orderArray = []
 
+// Event Listeners
 document.addEventListener('click', (e) => {
     if(e.target.dataset.addbtn) {
         handleAddItem(e.target.dataset.addbtn)
@@ -23,6 +26,7 @@ form.addEventListener('submit', (e)=> {
     handleSubmitOrder(e)
 })
 
+// Button Interactions
 function handleAddItem(name) {
     const itemObj = menuArray.filter((item) => {
         if(item.name === name) {
@@ -54,13 +58,14 @@ function handleSubmitOrder(e) {
 }
 
 function handleRemoveItem(ordername) {
-    orderArray = orderArray.filter((item) => {
-        return item.name !== ordername
-    })
 
-    orderArray.length === 0 ? orderContainer.classList.add('disable') : renderOrder(orderArray)
+    const indexToRemove = orderArray.findIndex((item) => item.name === ordername)
+    orderArray.splice(indexToRemove, 1)
+
+    !orderArray.length ? orderContainer.classList.add('disable') : renderOrder(orderArray)
 }
 
+// Render Order Functions
 function renderOrder(orderArr) {
     orderContainer.classList.contains('disable') && orderContainer.classList.remove('disable')
 
@@ -83,6 +88,7 @@ function renderOrder(orderArr) {
 
 }
 
+// Render HTML Functions
 function getMenuHtml(menuArr) {
     return menuArr.map((item)=> {
         const {name, ingredients, id, price, emoji} = item
