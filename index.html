@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Smythe&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Smythe&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    </head>
+    
+    <body>
+        <header>
+            <div class="container whiteText">
+                <div class = "header-section">
+                    <h1>SCP's Diner</h1>
+                    <p>The best burgers, pizzas in town.</p>
+                </div>
+            </div>
+        </header>
+        
+        <main> 
+            <section>
+                <div class = "container" id = "item-container">
+                        <!-- <div class="item-area" id="pizza">
+                            <h1 class="item-logo">🍕</h1>
+                            <div class="item-description">
+                                <h2>Pizza</h2>
+                                <h3>pepperoni,mushrom,mozarella</h3>
+                                <p>$14</p>
+                            </div>
+                            <div class="add-btn-area">
+                                <button class="add-item-btn" data-addbtn="pizza">+</button>
+                            </div>
+                        </div>
+                        <div class="line"></div> -->
+                </div>
+            </section>
+
+            <section>
+                <div class="container disable" id="order-container">
+                    <h1>Your order</h1>
+                    <div id="order-area">
+                        <!-- <div class="ordered-item">
+                            <h2 class="order-name">Pizza</h2>
+                            <button class="remove-selection-btn">remove</button>
+                            <p class="order-price">$14</p>
+                        </div>
+                        <div class="ordered-item">
+                            <h2 class="order-name">Pizza</h2>
+                            <button class="remove-selection-btn">remove</button>
+                            <p class="order-price">$14</p>
+                        </div> -->
+                    </div>
+                    <div class="sumup-line"></div>
+                    <div class="ordered-item">
+                        <h2 class="order-name">Total price: </h2>
+                        <p class="order-price" id="order-price">$26</p>
+                    </div>
+                    <button class="long-btn" id="complete-btn">Complete order</button>
+                </div>
+            </section>
+
+            <div class = "disable" id = "payment-window">
+                <form id="form">
+                    <h1>Enter Card detail</h1>
+                    <div id="input-field-area">
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        <input type="number" id="card-number" name="card-number" placeholder="Enter card number" required>
+                        <input type="number" id="cvv" name="cvv" placeholder="Enter CVV" required>
+                    </div>
+                    <button class="long-btn" type="submit" id="submit-btn">Pay</button>
+                </form>
+            </div>
+        </main>
+
+
+
+	<script src="index.js" type="module"></script>
+    </body>
+</html>
+
