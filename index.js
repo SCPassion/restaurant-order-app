@@ -6,13 +6,16 @@ const orderContainer = document.getElementById('order-container')
 const orderPrice = document.getElementById('order-price')
 const paymentWindow = document.getElementById('payment-window')
 const form = document.getElementById('form')
-const orderArray = []
+
+let orderArray = []
 
 document.addEventListener('click', (e) => {
     if(e.target.dataset.addbtn) {
         handleAddItem(e.target.dataset.addbtn)
     } else if(e.target.id === 'complete-btn') {
         handleCompleteOrder()
+    } else if(e.target.dataset.ordername) {
+        handleRemoveItem(e.target.dataset.ordername)
     }
 })
 
@@ -20,9 +23,9 @@ form.addEventListener('submit', (e)=> {
     handleSubmitOrder(e)
 })
 
-function handleAddItem(itemID) {
+function handleAddItem(name) {
     const itemObj = menuArray.filter((item) => {
-        if(item.name === itemID) {
+        if(item.name === name) {
             return item
         }
     })[0]
@@ -42,7 +45,20 @@ function handleSubmitOrder(e) {
     console.log(formData.get('cvv'))
     paymentWindow.classList.add("disable")
 
-    orderContainer.textContent = `Thanks, ${name}! Your order is on its way`
+    orderContainer.innerHTML = `
+        <div class="thank-msg">
+            <h1>
+                Thanks, ${name}! Your order is on its way!
+            </h1
+        <div>`
+}
+
+function handleRemoveItem(ordername) {
+    orderArray = orderArray.filter((item) => {
+        return item.name !== ordername
+    })
+
+    orderArray.length === 0 ? orderContainer.classList.add('disable') : renderOrder(orderArray)
 }
 
 function renderOrder(orderArr) {
@@ -53,7 +69,7 @@ function renderOrder(orderArr) {
         return `
             <div class="ordered-item">
                 <h2 class="order-name">${name}</h2>
-                <button class="remove-selection-btn">remove</button>
+                <button class="remove-selection-btn" data-ordername="${name}">remove</button>
                 <p class="order-price">$${price}</p>
             </div>`
     }).join('')
@@ -93,4 +109,3 @@ function renderMenu(menu) {
 }
 
 renderMenu(menuArray)
-

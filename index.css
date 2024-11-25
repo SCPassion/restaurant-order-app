@@ -183,11 +183,14 @@ header .container {
 
 /* payment window */
 #payment-window {
-    position: absolute;
+    position: fixed;
     width: 524px;
     height: 542.24px;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto auto;
     z-index: 1;
     box-shadow: 0px 0px 80px 30px #999;
     background-color: #FFFFFF;
@@ -232,6 +235,14 @@ input, #submit-btn {
     height: 71.3px;
 }
 
+.thank-msg h1 {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 16.8px;
+    padding: 51px 66px;
+    background-color: #ECFDF5;
+    color: #065F46;
+}
 .disable {
     display: none;
 }
